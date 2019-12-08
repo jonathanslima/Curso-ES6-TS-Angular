@@ -28,3 +28,4 @@ concessionaria1.montarListaDeCarros().map(function (carro) {
     }
 });
 console.log(cliente.dizerCarroQueTem());
+console.log(concessionaria1.HorarioAtendimento());

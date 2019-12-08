@@ -1,6 +1,7 @@
+import {ConcessionariaInterface} from '../interfaces/ConcessionariaInterface'
 import Carro from './Carro';
 
-class Concessionaria {
+class Concessionaria implements ConcessionariaInterface {
   private endereco: string;
   private listaDeCarros: any;
 
@@ -15,6 +16,10 @@ class Concessionaria {
 
   montarListaDeCarros(): any {
     return this.listaDeCarros;
+  }
+
+  HorarioAtendimento(): string{
+    return 'Atendimento das 08:00 as 17:00'
   }
 };
 

@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Veiculo = /** @class */ (function () {
-    function Veiculo(mod) {
+    function Veiculo(modelo) {
         this.velocidade = 0;
-        this.modelo = mod;
+        this.modelo = modelo;
     }
     Veiculo.prototype.acelerar = function () {
         this.velocidade += 10;

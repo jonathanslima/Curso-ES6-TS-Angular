@@ -3,9 +3,10 @@ import Veiculos from './Veiculos'
 class Carro extends Veiculos {
   private numeroDePortas: number;
 
-  constructor(mod: string, nportas: number) {
-		super(mod)
-		this.numeroDePortas = nportas;
+  constructor(modelo: string, numeroDePortas: number) {
+		super(modelo)
+		this.modelo = modelo;
+		this.numeroDePortas = numeroDePortas;
   }
 
 	public qtdPortas() : string{

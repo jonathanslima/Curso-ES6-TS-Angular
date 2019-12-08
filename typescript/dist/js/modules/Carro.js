@@ -19,9 +19,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Veiculos_1 = __importDefault(require("./Veiculos"));
 var Carro = /** @class */ (function (_super) {
     __extends(Carro, _super);
-    function Carro(mod, nportas) {
-        var _this = _super.call(this, mod) || this;
-        _this.numeroDePortas = nportas;
+    function Carro(modelo, numeroDePortas) {
+        var _this = _super.call(this, modelo) || this;
+        _this.modelo = modelo;
+        _this.numeroDePortas = numeroDePortas;
         return _this;
     }
     Carro.prototype.qtdPortas = function () {

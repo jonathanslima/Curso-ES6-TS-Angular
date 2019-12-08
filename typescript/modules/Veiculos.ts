@@ -1,9 +1,9 @@
 class Veiculo {
-  private modelo: string;
+  protected modelo: string;
   private velocidade: number = 0;
 
-  constructor(mod: string) {
-    this.modelo = mod;
+  constructor(modelo: string) {
+    this.modelo = modelo;
   }
 
   public acelerar(): void {

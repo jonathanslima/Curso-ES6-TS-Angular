@@ -28,3 +28,4 @@ concessionaria1.montarListaDeCarros().map((carro: Carro)=> {
 })
 
 console.log(cliente.dizerCarroQueTem());
+console.log(concessionaria1.HorarioAtendimento());
