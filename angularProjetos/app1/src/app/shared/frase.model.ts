@@ -1,4 +1,4 @@
-export class Frase{
+export class FraseModel{
 
   constructor(public fraseEng: string, public frasePor: string){
 
