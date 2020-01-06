@@ -1,6 +1,6 @@
 export class FraseModel{
 
-  constructor(public fraseEng: string, public frasePor: string){
+  constructor(public fraseEng: any, public frasePor: any){
 
     this.fraseEng = this.fraseEng;
     this.frasePor = this.frasePor;
