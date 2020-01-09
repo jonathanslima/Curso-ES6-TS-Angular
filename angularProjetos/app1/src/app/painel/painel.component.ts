@@ -13,14 +13,10 @@ export class PainelComponent implements OnInit {
   public resposta: string;
   public rodada: number = 0;
   public rodadaFrase: FraseModel;
+  public progresso: number = 0;
 
   constructor() {
     this.rodadaFrase = this.frase[this.rodada];
-
-  }
-
-  public atualizaFrase(val): void{
-    this.rodadaFrase = this.frase[val].fraseEng;
 
   }
 
@@ -29,15 +25,29 @@ export class PainelComponent implements OnInit {
   }
 
   public verificaResposta(): void{
+    let textarea = (<HTMLInputElement>document.querySelector('.jumbotron textarea'));
+    if(this.rodada == this.frase.length){
+      alert('Você venceu!')
+      return;
+    }
 
-    if(this.resposta == this.frase[this.rodada].frasePor){
-      console.log('true')
+    if(this.resposta == this.rodadaFrase.frasePor){
+      this.progresso += (100/this.frase.length);
+      textarea.value = '';
+      textarea.focus();
+      this.rodada++;
+
+      if(this.rodada == this.frase.length) {
+        textarea.disabled = true;
+        return
+      }else{
+        this.rodadaFrase = this.frase[this.rodada];
+
+      }
 
     }else{
       console.log('false')
     }
-    this.rodada = this.rodada + 1;
-    this.atualizaFrase(this.rodada);
 
   }
 

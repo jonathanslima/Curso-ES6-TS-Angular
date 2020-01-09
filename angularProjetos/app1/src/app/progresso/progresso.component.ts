@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-progresso',
@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./progresso.component.scss']
 })
 export class ProgressoComponent implements OnInit {
+  @Input('preencheBarra') public progresso : number = 0;
 
-  constructor() { }
+  constructor() {
+    console.log(this.progresso)
+   }
 
   ngOnInit() {
   }
