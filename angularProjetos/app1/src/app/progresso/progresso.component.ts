@@ -8,9 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProgressoComponent implements OnInit {
   @Input('preencheBarra') public progresso : number = 0;
 
-  constructor() {
-    console.log(this.progresso)
-   }
+  constructor() {}
 
   ngOnInit() {
   }
