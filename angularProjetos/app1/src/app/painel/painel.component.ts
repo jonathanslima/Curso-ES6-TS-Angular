@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FraseModel } from '../shared/frase.model';
 import { FRASES } from './frase-mock';
 
@@ -54,6 +54,7 @@ export class PainelComponent implements OnInit {
     }else{
       this.tentativas--;
       console.log(this.tentativas)
+
 
       if(this.tentativas == -1){
         alert('Você perdeu!')
