@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FraseModel } from '../shared/frase.model';
 import { FRASES } from './frase-mock';
 
@@ -15,6 +15,7 @@ export class PainelComponent implements OnInit {
   public rodadaFrase: FraseModel;
   public progresso: number = 0;
   public tentativas: number = 3;
+  @Output() public encerraJogo: EventEmitter<string> = new EventEmitter();
 
   constructor() {
     this.atualizaRodada();
@@ -33,7 +34,8 @@ export class PainelComponent implements OnInit {
   public verificaResposta(): void{
     let textarea = (<HTMLInputElement>document.querySelector('.jumbotron textarea'));
     if(this.rodada == this.frase.length){
-      alert('Você venceu!')
+      alert('Você venceu1!')
+      this.encerraJogo.emit('vitoria')
       return;
     }
 
@@ -44,7 +46,8 @@ export class PainelComponent implements OnInit {
 
       if(this.rodada == this.frase.length) {
         textarea.disabled = true;
-        alert('Você venceu!')
+        alert('Você venceu2!')
+        this.encerraJogo.emit('vitoria')
         return
       }else{
         this.atualizaRodada();
@@ -53,11 +56,13 @@ export class PainelComponent implements OnInit {
 
     }else{
       this.tentativas--;
-      console.log(this.tentativas)
+      this.resposta = '';
+      textarea.focus();
 
-
-      if(this.tentativas == -1){
+      if(this.tentativas == 0){
         alert('Você perdeu!')
+        textarea.disabled = true;
+        this.encerraJogo.emit('derrota')
       }
     }
 
