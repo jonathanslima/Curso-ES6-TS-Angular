@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FraseModel } from '../shared/frase.model';
 import { FRASES } from './frase-mock';
 
@@ -19,7 +19,6 @@ export class PainelComponent implements OnInit {
 
   constructor() {
     this.atualizaRodada();
-
   }
 
   public atualizaResposta(resposta: Event): void{
@@ -33,11 +32,6 @@ export class PainelComponent implements OnInit {
 
   public verificaResposta(): void{
     let textarea = (<HTMLInputElement>document.querySelector('.jumbotron textarea'));
-    if(this.rodada == this.frase.length){
-      alert('Você venceu1!')
-      this.encerraJogo.emit('vitoria')
-      return;
-    }
 
     if(this.resposta == this.rodadaFrase.frasePor){
       this.progresso += (100/this.frase.length);
@@ -45,13 +39,10 @@ export class PainelComponent implements OnInit {
       this.rodada++;
 
       if(this.rodada == this.frase.length) {
-        textarea.disabled = true;
-        alert('Você venceu2!')
         this.encerraJogo.emit('vitoria')
-        return
+
       }else{
         this.atualizaRodada();
-
       }
 
     }else{
@@ -60,15 +51,11 @@ export class PainelComponent implements OnInit {
       textarea.focus();
 
       if(this.tentativas == 0){
-        alert('Você perdeu!')
-        textarea.disabled = true;
         this.encerraJogo.emit('derrota')
       }
     }
 
   }
-
-
 
   ngOnInit() {
   }
