@@ -10,7 +10,6 @@ export class AppComponent {
   public vitoria : boolean = true;
 
   public encerraJogo(tipo: string){
-    console.log(tipo)
     this.jogoEmAndamento = false;
     if(tipo == "derrota"){
       this.vitoria = false;
@@ -18,7 +17,6 @@ export class AppComponent {
   }
 
   public reiniciaJogo() : void{
-    console.log('clicando')
     this.jogoEmAndamento = true;
     this.vitoria = undefined;
   }
