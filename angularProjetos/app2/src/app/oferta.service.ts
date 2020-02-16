@@ -1,6 +1,11 @@
+import { HttpClientModule } from '@angular/common/http';
 import { oferta } from './shared/oferta.model';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ofertasService{
+  constructor(private http: HttpClientModule){}
+
   public ofertas: Array<oferta> = [
     {
       id: 1,
@@ -58,7 +63,13 @@ export class ofertasService{
 
   public getOfertas(): Promise<oferta[]>{
     return new Promise((resolve, reject)=>{
-      resolve(this.ofertas)
+      resolve(this.ofertas);
+      reject(()=>{
+        return {
+          error: 404,
+          description: 'The request hasn\'t been sent'
+        }
+      })
     })
   }
 }

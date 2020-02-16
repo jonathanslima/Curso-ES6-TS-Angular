@@ -17,6 +17,9 @@ export class HomeComponent implements OnInit {
     this.ofertasService.getOfertas()
       .then(oferta => {
         this.ofertas = oferta;
+      }).catch(error =>{
+        console.log(error().error)
+        console.log(error().description)
       })
   }
 
