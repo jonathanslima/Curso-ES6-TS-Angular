@@ -9,6 +9,8 @@ export class TopoComponent implements OnInit {
 
   constructor() { }
 
+  public menu: Array<string> = ['/', 'restaurantes', 'diversao'];
+
   ngOnInit() {
   }
 
