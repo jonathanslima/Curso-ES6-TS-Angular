@@ -14,4 +14,11 @@ export class ofertasService{
       .then((res: any) => res)
       .catch(error => console.error('ERRO: ', error))
   }
+
+  public getOfertasPorCategoria(categoria: string): Promise<oferta[]>{
+    return this.http.get(`http://localhost:3000/ofertas?categoria=${categoria}`)
+      .toPromise()
+      .then((res: any)=> res)
+      .catch(error => console.error('ERRO: ', error))
+  }
 }
