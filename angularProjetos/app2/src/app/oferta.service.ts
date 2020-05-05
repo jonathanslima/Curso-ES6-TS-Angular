@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { oferta } from './shared/oferta.model';
 import { Injectable } from '@angular/core';
 import { URL_API } from './urls.api';
+import { URL_API_LOC } from './urls.api';
+import { URL_API_USO } from './urls.api';
 
 // import 'rxjs/add/operator/toPromise'
 
@@ -28,5 +30,19 @@ export class ofertasService{
       .toPromise()
       .then((res: any) => res)
       .catch(error => console.error('ERRO: ', error))
+  }
+
+  public getLocalById(id: any): Promise<oferta[]>{
+    return this.http.get(`${URL_API_LOC}?id=${id}`)
+      .toPromise()
+      .then((res: any) => res)
+      .catch(error => console.log('ERRO: ', error))
+  }
+
+  public getComoUsarOfertaPorId(id: any): Promise<oferta[]>{
+    return this.http.get(`${URL_API_USO}?id=${id}`)
+      .toPromise()
+      .then((res: any) => res)
+      .catch(error => console.log('ERRO: ', error))
   }
 }
