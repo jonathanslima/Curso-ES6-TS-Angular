@@ -12,12 +12,12 @@ export class OndeFicaComponent implements OnInit {
   public local: string = "carregando local...";
   constructor(
     private oferta: ofertasService,
-    private route: ActivatedRoute  
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     // console.log('local: ', this.route.parent.snapshot.params['id']);
-    this.oferta.getLocalById(this.route.parent.snapshot.params['id'])
+    this.oferta.getOndeFicaOfertaPorId(this.route.parent.snapshot.params['id'])
       .then((res: any) => this.local = res[0].descricao)
   }
 

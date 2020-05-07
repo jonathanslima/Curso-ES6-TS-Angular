@@ -32,7 +32,7 @@ export class ofertasService{
       .catch(error => console.error('ERRO: ', error))
   }
 
-  public getLocalById(id: any): Promise<oferta[]>{
+  public getOndeFicaOfertaPorId(id: any): Promise<oferta[]>{
     return this.http.get(`${URL_API_LOC}?id=${id}`)
       .toPromise()
       .then((res: any) => res)
